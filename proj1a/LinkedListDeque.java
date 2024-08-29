@@ -86,7 +86,7 @@ public class LinkedListDeque<T> {
         return p.item;
     }
 
-    public T getHelper(ListNode<T> node, int index) {
+    private T getHelper(ListNode<T> node, int index) {
         if (node == sentinel) {
             return null;
         }
@@ -102,3 +102,4 @@ public class LinkedListDeque<T> {
         return getHelper(sentinel.next, index);
     }
 }
+
