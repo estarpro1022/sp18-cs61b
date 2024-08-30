@@ -99,17 +99,13 @@ public class ArrayDeque<T> {
 
     private void resize(int capacity) {
         T[] res = (T[]) new Object[capacity];
-        if (size == items.length) {
+        if (size == items.length || nextFirst >= nextLast) {
             // 满了
-            for (int i = 0; i < items.length; i++) {
-                res[i] = items[i];
-            }
-        } else if (nextFirst >= nextLast) {
-            for (int i = nextFirst + 1; i < items.length; i++) {
-                res[i - (nextFirst + 1)] = items[i];
+            for (int i = addOne(nextFirst); i < items.length; i++) {
+                res[i - addOne(nextFirst)] = items[i];
             }
             for (int i = 0; i < nextLast; i++) {
-                res[i + items.length - nextFirst - 1] = items[i];
+                res[i + items.length - addOne(nextFirst)] = items[i];
             }
         } else {
             for (int i = nextFirst + 1; i < nextLast; i++) {
