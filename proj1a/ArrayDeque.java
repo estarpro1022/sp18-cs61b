@@ -56,12 +56,12 @@ public class ArrayDeque<T> {
         if (size == 0) {
             return null;
         }
-        if (items.length >= MINIMUM_CAPACITY && (1.0 * size / items.length) < 0.25) {
-            resize(items.length / 2);
-        }
         T item = items[addOne(nextFirst)];
         nextFirst = addOne(nextFirst);
         size--;
+        if (items.length >= MINIMUM_CAPACITY && (1.0 * size / items.length) < 0.25) {
+            resize(items.length / 2);
+        }
         return item;
     }
 
