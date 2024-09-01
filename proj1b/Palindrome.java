@@ -19,7 +19,7 @@ public class Palindrome {
     }
 
     public boolean isPalindrome(String word, CharacterComparator cc) {
-        Deque<Character> deque = new LinkedListDeque<>();
+        Deque<Character> deque = wordToDeque(word);
         while (deque.size() > 1) {
             char first = deque.removeFirst();
             char second = deque.removeLast();

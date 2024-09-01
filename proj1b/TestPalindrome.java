@@ -38,4 +38,19 @@ public class TestPalindrome {
         assertTrue(palindrome.isPalindrome(""));
         assertTrue(palindrome.isPalindrome("A"));
     }
+
+    @Test
+    public void testOffByOne1() {
+        OffByOne offByOne = new OffByOne();
+        assertTrue(palindrome.isPalindrome("abb", offByOne));
+        assertTrue(palindrome.isPalindrome("bcbc", offByOne));
+        assertTrue(palindrome.isPalindrome("a", offByOne));
+        assertTrue(palindrome.isPalindrome("", offByOne));
+    }
+
+    @Test
+    public void testOffByOne2() {
+        OffByOne offByOne = new OffByOne();
+        assertFalse(palindrome.isPalindrome("aba", offByOne));
+    }
 }
